@@ -3,72 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VersaPay - Payroll Management</title>
+    <title>GLOBAL SEND - Seamless International Transactions</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- LOGIN / REGISTRATION SCREEN -->
-    <div id="login-screen" class="screen active">
-        <div class="login-container">
-            <h1>VersaPay</h1>
-            <p>Payroll for Modern Organizations</p>
-            <div id="auth-forms">
-                <!-- Login Form -->
-                <form id="login-form">
-                    <h2>Login to Your Organization</h2>
-                    <input type="text" id="login-org-name" placeholder="Organization Name" required>
-                    <input type="password" id="login-password" placeholder="Password" required>
-                    <button type="submit">Login</button>
-                    <p class="error-message" id="login-error"></p>
-                </form>
-                <p>or</p>
-                <!-- Registration Form -->
-                <form id="register-form">
-                    <h2>Register a New Organization</h2>
-                    <input type="text" id="register-org-name" placeholder="Organization Name" required>
-                    <input type="password" id="register-password" placeholder="Create a Password" required>
-                    <button type="submit">Register</button>
-                    <p class="error-message" id="register-error"></p>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- MAIN APPLICATION SCREEN (Initially Hidden) -->
-    <div id="app-screen" class="screen">
-        <header>
-            <h1 id="app-org-name">Organization Name</h1>
-            <button id="logout-btn">Logout</button>
-        </header>
-        <div class="app-container">
+    <header>
+        <div class="container">
+            <div class="logo">GLOBAL <span class="logo-accent">SEND</span></div>
             <nav>
                 <ul>
-                    <li><a href="#" class="nav-link active" data-view="dashboard-view">Dashboard</a></li>
-                    <li><a href="#" class="nav-link" data-view="employees-view">Employees</a></li>
-                    <li><a href="#" class="nav-link" data-view="settings-view">Settings</a></li>
-                    <li><a href="#" class="nav-link" data-view="payroll-view">Run Payroll</a></li>
-                    <li><a href="#" class="nav-link" data-view="reports-view">Reports</a></li>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#rates">Rates</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn btn-secondary">Login</a></li>
+                    <li><a href="#" class="btn btn-primary">Sign Up</a></li>
                 </ul>
             </nav>
-            <main id="main-content">
-                <!-- Views will be dynamically inserted here -->
-                <div id="dashboard-view" class="view active"></div>
-                <div id="employees-view" class="view"></div>
-                <div id="settings-view" class="view"></div>
-                <div id="payroll-view" class="view"></div>
-                <div id="reports-view" class="view"></div>
-            </main>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Modal for Forms (e.g., Add/Edit Employee, Payslip) -->
-    <div id="modal-container" class="hidden">
-        <div id="modal-content">
-            <!-- Modal content will be injected by JavaScript -->
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Send Money Globally, <span class="highlight">Seamlessly</span>.</h1>
+                <p class="subtitle">Fast, secure, and low-cost transfers to Nigeria 🇳🇬, USA 🇺🇸, UK 🇬🇧, and Canada 🇨🇦.</p>
+                <a href="#transaction-form" class="btn btn-primary btn-large">Get Started Now</a>
+            </div>
+        </section>
+
+        <section id="transaction-form" class="section-padding">
+            <div class="container">
+                <h2>Start Your Transaction</h2>
+                <form class="send-money-form">
+                    <div class="form-group">
+                        <label for="send-amount">You Send:</label>
+                        <div class="input-group">
+                            <input type="number" id="send-amount" name="send-amount" placeholder="1000">
+                            <select id="send-currency" name="send-currency">
+                                <option value="NGN">NGN 🇳🇬</option>
+                                <option value="USD">USD 🇺🇸</option>
+                                <option value="GBP">GBP 🇬🇧</option>
+                                <option value="CAD">CAD 🇨🇦</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="exchange-rate-info">
+                        <p>Exchange Rate: <span id="rate-display">1 USD = 750 NGN (example)</span></p>
+                        <p>Fee: <span id="fee-display">$2.99 (example)</span></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="receive-amount">Recipient Gets (Approximately):</label>
+                        <div class="input-group">
+                            <input type="text" id="receive-amount" name="receive-amount" placeholder="747,010" readonly>
+                            <select id="receive-currency" name="receive-currency">
+                                <option value="NGN">NGN 🇳🇬</option>
+                                <option value="USD">USD 🇺🇸</option>
+                                <option value="GBP">GBP 🇬🇧</option>
+                                <option value="CAD">CAD 🇨🇦</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full-width">Continue Transaction</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section-padding bg-light">
+            <div class="container">
+                <h2>How GLOBAL SEND Works</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-icon">1</div>
+                        <h3>Enter Amount</h3>
+                        <p>Tell us how much you want to send and where it's going.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">2</div>
+                        <h3>Add Recipient</h3>
+                        <p>Provide your recipient's details. It's quick and easy.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">3</div>
+                        <h3>Pay Securely</h3>
+                        <p>Choose your preferred payment method and confirm.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">4</div>
+                        <h3>Money Sent!</h3>
+                        <p>Track your transfer and we'll notify you upon delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section-padding">
+            <div class="container">
+                <h2>Why Choose GLOBAL SEND?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/80/28a745/ffffff?text=🚀" alt="Fast Icon" class="feature-icon">
+                        <h3>Lightning Fast</h3>
+                        <p>Most transfers arrive within minutes.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/80/ffc107/000000?text=🛡️" alt="Secure Icon" class="feature-icon">
+                        <h3>Bank-Level Security</h3>
+                        <p>Your money and data are always protected.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/80/007bff/ffffff?text=💰" alt="Low Cost Icon" class="feature-icon">
+                        <h3>Low, Transparent Fees</h3>
+                        <p>No hidden charges. See your costs upfront.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/80/6f42c1/ffffff?text=🌍" alt="Global Icon" class="feature-icon">
+                        <h3>Wide Coverage</h3>
+                        <p>Send to Nigeria, USA, UK, and Canada with ease.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rates" class="section-padding bg-light">
+            <div class="container">
+                <h2>Live Exchange Rates (Example)</h2>
+                <p class="subtitle">Get the best rates for your international transfers.</p>
+                <div class="rates-table">
+                    <div class="rate-row header">
+                        <div>From</div>
+                        <div>To</div>
+                        <div>Rate</div>
+                    </div>
+                    <div class="rate-row">
+                        <div>USD 🇺🇸</div>
+                        <div>NGN 🇳🇬</div>
+                        <div>1 USD = 1450.50 NGN</div>
+                    </div>
+                    <div class="rate-row">
+                        <div>GBP 🇬🇧</div>
+                        <div>NGN 🇳🇬</div>
+                        <div>1 GBP = 1820.75 NGN</div>
+                    </div>
+                    <div class="rate-row">
+                        <div>CAD 🇨🇦</div>
+                        <div>NGN 🇳🇬</div>
+                        <div>1 CAD = 1080.20 NGN</div>
+                    </div>
+                    <div class="rate-row">
+                        <div>USD 🇺🇸</div>
+                        <div>GBP 🇬🇧</div>
+                        <div>1 USD = 0.79 GBP</div>
+                    </div>
+                </div>
+                <p class="disclaimer">*Rates are indicative and subject to change. Final rate applied at time of transaction.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Have questions? Our support team is here to help!</p>
+                <a href="mailto:support@globalsend.com" class="btn btn-secondary">Email Support</a>
+                <a href="tel:+2348126389601" class="btn btn-secondary">Call Us</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 GLOBAL SEND. All Rights Reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </p>
         </div>
-    </div>
+    </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // --- MOBILE MENU TOGGLE ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const nav = document.querySelector('header nav');
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const hrefAttribute = this.getAttribute('href');
+                // Ensure it's a page anchor and not just "#"
+                if (hrefAttribute && hrefAttribute.length > 1 && hrefAttribute.startsWith('#')) {
+                    const targetElement = document.querySelector(hrefAttribute);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        // Close mobile menu if open after clicking a link
+                        if (nav.classList.contains('active')) {
+                            nav.classList.remove('active');
+                            mobileMenu.classList.remove('active');
+                        }
+                    }
+                }
+            });
+        });
+
+        // --- TRANSACTION FORM INTERACTIVITY ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const sendAmountInput = document.getElementById('send-amount');
+            const sendCurrencySelect = document.getElementById('send-currency');
+            const receiveAmountInput = document.getElementById('receive-amount');
+            const receiveCurrencySelect = document.getElementById('receive-currency');
+            const rateDisplay = document.getElementById('rate-display');
+            const feeDisplay = document.getElementById('fee-display');
+            const transactionForm = document.getElementById('globalSendForm');
+
+            // --- MOCK DATA (In a real app, this would come from an API) ---
+            const MOCK_EXCHANGE_RATES = {
+                'USD': { 'NGN': 1450.50, 'GBP': 0.79, 'CAD': 1.35, 'USD': 1 },
+                'GBP': { 'NGN': 1820.75, 'USD': 1.27, 'CAD': 1.71, 'GBP': 1 },
+                'CAD': { 'NGN': 1080.20, 'USD': 0.74, 'GBP': 0.58, 'CAD': 1 },
+                'NGN': { 'USD': 0.00067, 'GBP': 0.00053, 'CAD': 0.00090, 'NGN': 1 } // Adjusted NGN rates
+            };
+
+            const MOCK_FEES = { // Fee in the sending currency
+                'USD': 2.99,
+                'GBP': 2.50,
+                'CAD': 3.50,
+                'NGN': 500.00
+            };
+            
+            const CURRENCY_SYMBOLS = {
+                'USD': '$',
+                'GBP': '£',
+                'CAD': 'C$',
+                'NGN': '₦'
+            };
+
+            function formatCurrency(amount, currencyCode) {
+                if (isNaN(amount) || amount === null) return '0.00';
+                try {
+                    return new Intl.NumberFormat('en-US', { 
+                        minimumFractionDigits: 2, 
+                        maximumFractionDigits: 2 
+                    }).format(amount);
+                } catch (e) {
+                    return amount.toFixed(2); // Fallback
+                }
+            }
+
+
+            function calculateConversion() {
+                const sendAmount = parseFloat(sendAmountInput.value);
+                const sendCurrency = sendCurrencySelect.value;
+                const receiveCurrency = receiveCurrencySelect.value;
+
+                if (isNaN(sendAmount) || sendAmount <= 0) {
+                    receiveAmountInput.value = '0.00';
+                    rateDisplay.textContent = '-';
+                    feeDisplay.textContent = '-';
+                    return;
+                }
+
+                const fee = MOCK_FEES[sendCurrency] || 0;
+                const amountAfterFee = sendAmount - fee;
+
+                let exchangeRate = 0;
+                if (MOCK_EXCHANGE_RATES[sendCurrency] && MOCK_EXCHANGE_RATES[sendCurrency][receiveCurrency]) {
+                    exchangeRate = MOCK_EXCHANGE_RATES[sendCurrency][receiveCurrency];
+                } else {
+                     // Handle case where direct rate isn't available (e.g., should not happen with current data)
+                    receiveAmountInput.value = 'N/A';
+                    rateDisplay.textContent = 'Rate not available';
+                    feeDisplay.textContent = `${CURRENCY_SYMBOLS[sendCurrency] || ''}${formatCurrency(fee, sendCurrency)}`;
+                    return;
+                }
+                
+                if (amountAfterFee < 0) { // If fee is more than send amount
+                    receiveAmountInput.value = '0.00';
+                    rateDisplay.textContent = `1 ${sendCurrency} = ${formatCurrency(exchangeRate, receiveCurrency)} ${receiveCurrency}`;
+                    feeDisplay.textContent = `${CURRENCY_SYMBOLS[sendCurrency] || ''}${formatCurrency(fee, sendCurrency)}`;
+                    if (sendCurrency !== receiveCurrency) {
+                        rateDisplay.textContent += ` (Fee Exceeds Amount)`;
+                    } else {
+                        rateDisplay.textContent = 'Fee Exceeds Amount';
+                    }
+                    return;
+                }
+
+                const receivedAmount = amountAfterFee * exchangeRate;
+
+                receiveAmountInput.value = formatCurrency(receivedAmount, receiveCurrency);
+                if (sendCurrency === receiveCurrency) {
+                    rateDisplay.textContent = `1 ${sendCurrency} = 1 ${receiveCurrency} (Same Currency)`;
+                } else {
+                    rateDisplay.textContent = `1 ${sendCurrency} = ${formatCurrency(exchangeRate, receiveCurrency)} ${receiveCurrency}`;
+                }
+                feeDisplay.textContent = `${CURRENCY_SYMBOLS[sendCurrency] || ''}${formatCurrency(fee, sendCurrency)}`;
+            }
+
+            // Event Listeners for the form
+            sendAmountInput.addEventListener('input', calculateConversion);
+            sendCurrencySelect.addEventListener('change', calculateConversion);
+            receiveCurrencySelect.addEventListener('change', calculateConversion);
+
+            // Initial calculation on page load if there's a default amount
+            if (sendAmountInput.value) {
+                 calculateConversion();
+            } else { // Set initial display for rate and fee based on default currencies
+                const initialSendCurrency = sendCurrencySelect.value;
+                const initialReceiveCurrency = receiveCurrencySelect.value;
+                const initialRate = MOCK_EXCHANGE_RATES[initialSendCurrency]?.[initialReceiveCurrency] || 0;
+                const initialFee = MOCK_FEES[initialSendCurrency] || 0;
+
+                if (initialRate) {
+                     if (initialSendCurrency === initialReceiveCurrency) {
+                        rateDisplay.textContent = `1 ${initialSendCurrency} = 1 ${initialReceiveCurrency} (Same Currency)`;
+                    } else {
+                        rateDisplay.textContent = `1 ${initialSendCurrency} = ${formatCurrency(initialRate, initialReceiveCurrency)} ${initialReceiveCurrency}`;
+                    }
+                } else {
+                    rateDisplay.textContent = 'Select currencies';
+                }
+                feeDisplay.textContent = `${CURRENCY_SYMBOLS[initialSendCurrency] || ''}${formatCurrency(initialFee, initialSendCurrency)}`;
+                receiveAmountInput.value = '0.00';
+            }
+
+            // Prevent form submission for this demo
+            transactionForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Transaction form submitted (demo)! In a real app, this would proceed to the next step.');
+                // You could add logic here to gather form data and "send" it
+                // e.g., console.log('Sending:', sendAmountInput.value, sendCurrencySelect.value, 'to', receiveCurrencySelect.value);
+            });
+        });
+    </script>
+
 </body>
 </html>
