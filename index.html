@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--Created by Harvic-->
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Animated Profile Card Design</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VersaPay - Payroll Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <!--font awesome(for icons)-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-
-    <!--css file-->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="card">
-        
-      <div class="card-top">
-        <div class="card-text">
-          <h2>Harry Adamson</h2>
-          <p>Game Developer</p>
+    <!-- LOGIN / REGISTRATION SCREEN -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <h1>VersaPay</h1>
+            <p>Payroll for Modern Organizations</p>
+            <div id="auth-forms">
+                <!-- Login Form -->
+                <form id="login-form">
+                    <h2>Login to Your Organization</h2>
+                    <input type="text" id="login-org-name" placeholder="Organization Name" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <p class="error-message" id="login-error"></p>
+                </form>
+                <p>or</p>
+                <!-- Registration Form -->
+                <form id="register-form">
+                    <h2>Register a New Organization</h2>
+                    <input type="text" id="register-org-name" placeholder="Organization Name" required>
+                    <input type="password" id="register-password" placeholder="Create a Password" required>
+                    <button type="submit">Register</button>
+                    <p class="error-message" id="register-error"></p>
+                </form>
+            </div>
         </div>
-        <div class="card-btn">
-          <i class="fas fa-plus"></i>
-        </div>
-      </div>
-
-      <div class="card-bottom">
-        <div class="box">
-          <h5>Projects</h5>
-          <p>10</p>
-        </div>
-        <div class="box">
-          <h5>Clients</h5>
-          <p>15</p>
-        </div>
-        <div class="box">
-          <h5>Rating</h5>
-          <p>4.5</p>
-        </div>
-      </div>
-
-      <div class="card-slide">
-        <p>Know more about me here</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-codepen"></i></a>
-        </div>
-      </div>
     </div>
 
-    <script src="app.js"></script>
-  </body>
+    <!-- MAIN APPLICATION SCREEN (Initially Hidden) -->
+    <div id="app-screen" class="screen">
+        <header>
+            <h1 id="app-org-name">Organization Name</h1>
+            <button id="logout-btn">Logout</button>
+        </header>
+        <div class="app-container">
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-view="dashboard-view">Dashboard</a></li>
+                    <li><a href="#" class="nav-link" data-view="employees-view">Employees</a></li>
+                    <li><a href="#" class="nav-link" data-view="settings-view">Settings</a></li>
+                    <li><a href="#" class="nav-link" data-view="payroll-view">Run Payroll</a></li>
+                    <li><a href="#" class="nav-link" data-view="reports-view">Reports</a></li>
+                </ul>
+            </nav>
+            <main id="main-content">
+                <!-- Views will be dynamically inserted here -->
+                <div id="dashboard-view" class="view active"></div>
+                <div id="employees-view" class="view"></div>
+                <div id="settings-view" class="view"></div>
+                <div id="payroll-view" class="view"></div>
+                <div id="reports-view" class="view"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal for Forms (e.g., Add/Edit Employee, Payslip) -->
+    <div id="modal-container" class="hidden">
+        <div id="modal-content">
+            <!-- Modal content will be injected by JavaScript -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
